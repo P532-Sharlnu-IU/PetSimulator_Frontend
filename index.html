@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Virtual Pet Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+
+    <!-- ADOPT & STATUS CARD -->
+    <div class="card">
+        <h1>Virtual Pet Simulator</h1>
+        <section id="adopt-section">
+            <input id="pet-name" type="text" placeholder="Enter pet name" />
+            <button id="adopt-btn">Adopt</button>
+        </section>
+
+        <section id="status-section" class="hidden">
+            <h2 id="pet-title"></h2>
+            <div id="state-section">State: <span id="state-name"></span></div>
+
+            <div class="status-bar">
+                <label>Hunger</label>
+                <progress id="hunger-bar" max="100" value="0"></progress>
+            </div>
+            <div class="status-bar">
+                <label>Happiness</label>
+                <progress id="happy-bar" max="100" value="0"></progress>
+            </div>
+            <div class="status-bar">
+                <label>Health</label>
+                <progress id="health-bar" max="100" value="0"></progress>
+            </div>
+
+            <div class="actions">
+                <button data-action="feed">Feed</button>
+                <button data-action="play">Play</button>
+                <button data-action="clean">Clean</button>
+                <button data-action="heal">Heal</button>
+                <button id="undo-btn">Undo</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- HISTORY CARD -->
+    <div class="card">
+        <h3>Action History</h3>
+        <ul id="history-list"></ul>
+    </div>
+
+    <!-- INVENTORY CARD -->
+    <div class="card">
+        <h3>Inventory</h3>
+        <div id="inventory-list"></div>
+    </div>
+
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+/* VARIABLES */
+:root {
+  --bg-color:    #f0f3f5;
+  --card-bg:     #ffffff;
+  --text-color:  #2c3e50;
+  --accent:      #1abc9c;
+  --accent-dark: #16a085;
+  --muted:       #7f8c8d;
+  --border:      #e0e4e7;
+}
+
+/* RESET/BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  padding: 30px 10px;
+}
+
+/* GRID CONTAINER */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* CARD */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CARD HEADERS */
+.card h1,
+.card h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+.card h1 {
+  font-size: 1.6em;
+}
+.card h3 {
+  font-size: 1.2em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+/* ADOPT FORM */
+#adopt-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#adopt-section input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+#adopt-section button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#adopt-section button:hover {
+  background: var(--accent-dark);
+}
+
+/* STATUS */
+#status-section h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+#state-section {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.status-bar {
+  margin-bottom: 12px;
+}
+.status-bar label {
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+progress {
+  width: 100%;
+  height: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--border);
+}
+progress::-webkit-progress-value {
+  border-radius: 6px;
+}
+#hunger-bar::-webkit-progress-value { background: #e74c3c; }
+#happy-bar::-webkit-progress-value  { background: #f1c40f; }
+#health-bar::-webkit-progress-value { background: #2ecc71; }
+
+/* ACTION BUTTONS */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.actions button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+.actions button:hover:enabled {
+  background: var(--accent-dark);
+}
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* HISTORY */
+#history-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  padding-left: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+#history-list li {
+  font-size: 0.9em;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* INVENTORY */
+#inventory-list {
+  overflow-y: auto;
+  flex: 1;
+  padding-left: 8px;
+}
+#inventory-list details {
+  margin: 4px 0 4px 12px;
+}
+#inventory-list summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+#inventory-list li {
+  margin-left: 16px;
+  font-size: 0.9em;
+}
