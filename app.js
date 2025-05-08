@@ -1,4 +1,4 @@
-const API_ROOT   = 'http://localhost:8080';
+const API_ROOT   = 'https://pet-service-latest.onrender.com';
 const PET_BASE   = `${API_ROOT}/api/pet`;
 const PET_INV    = `${API_ROOT}/api/inventory`;
 const PET_ADMIN   = `${API_ROOT}/api/admin`;
