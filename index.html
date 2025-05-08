@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
     <title>Virtual Pet Simulator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-
-    <!-- ADOPT & STATUS CARD -->
-    <div class="card">
-        <h1>Virtual Pet Simulator</h1>
-        <section id="adopt-section">
-            <input id="pet-name" type="text" placeholder="Enter pet name" />
-            <button id="adopt-btn">Adopt</button>
-        </section>
-
-        <section id="status-section" class="hidden">
-            <h2 id="pet-title"></h2>
-            <div id="state-section">State: <span id="state-name"></span></div>
-
-            <div class="status-bar">
-                <label>Hunger</label>
-                <progress id="hunger-bar" max="100" value="0"></progress>
-            </div>
-            <div class="status-bar">
-                <label>Happiness</label>
-                <progress id="happy-bar" max="100" value="0"></progress>
-            </div>
-            <div class="status-bar">
-                <label>Health</label>
-                <progress id="health-bar" max="100" value="0"></progress>
-            </div>
-
-            <div class="actions">
-                <button data-action="feed">Feed</button>
-                <button data-action="play">Play</button>
-                <button data-action="clean">Clean</button>
-                <button data-action="heal">Heal</button>
-                <button id="undo-btn">Undo</button>
-            </div>
-        </section>
+<!-- 1) WELCOME SCREEN -->
+<div id="welcome-screen" class="screen">
+    <div class="card welcome-card">
+        <h1>Welcome to Pet Simulator</h1>
+        <button id="start-btn">Let’s Start</button>
     </div>
-
-    <!-- HISTORY CARD -->
-    <div class="card">
-        <h3>Action History</h3>
-        <ul id="history-list"></ul>
-    </div>
-
-    <!-- INVENTORY CARD -->
-    <div class="card">
-        <h3>Inventory</h3>
-        <div id="inventory-list"></div>
-    </div>
-
 </div>
 
-<script src="app.js" defer></script>
+<!-- 2) SELECT YOUR PET -->
+<div id="select-screen" class="screen hidden">
+    <div class="card select-card">
+        <h2>Select Your Pet</h2>
+        <div id="pet-types" class="pet-types"></div>
+        <div class="adopt-form">
+            <input id="pet-name" type="text" placeholder="Enter a name…">
+            <button id="adopt-btn">Adopt</button>
+        </div>
+    </div>
+</div>
+
+<!-- 3) SIMULATOR -->
+<div id="sim-screen" class="screen hidden">
+    <div class="container">
+        <div class="card sim-card">
+            <h2 id="pet-title"></h2>
+            <img id="pet-img" alt="Your Pet">
+            <p>State: <span id="state-name"></span></p>
+
+            <label>Hunger</label>
+            <progress id="hunger-bar" max="100" value="0"></progress>
+            <label>Happiness</label>
+            <progress id="happy-bar" max="100" value="0"></progress>
+            <label>Health</label>
+            <progress id="health-bar" max="100" value="0"></progress>
+
+            <div class="actions">
+                <button data-action="feed"  class="action-btn">Feed</button>
+                <button data-action="play"  class="action-btn">Play</button>
+                <button data-action="clean" class="action-btn">Clean</button>
+                <button data-action="heal"  class="action-btn">Heal</button>
+            </div>
+
+            <button id="undo-btn">Undo</button>
+            <button id="reset-btn" class="reset-btn">New Game</button>
+        </div>
+
+        <div class="card history-card">
+            <h3>Action History</h3>
+            <ul id="history-list"></ul>
+        </div>
+
+        <div class="card inv-card">
+            <h3>Inventory</h3>
+            <div id="inventory-list"></div>
+
+            <!-- RESTOCK FORM -->
+            <div class="restock-form">
+                <select id="restock-item">
+                    <option value="">-- Restock Items --</option>
+                </select>
+                <input id="restock-qty" type="number" min="1" placeholder="Qty">
+                <button id="restock-btn">Restock</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
